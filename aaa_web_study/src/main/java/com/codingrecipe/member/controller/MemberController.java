@@ -1,16 +1,16 @@
-package com.codingrecipe.project01.controller;
+package com.codingrecipe.member.controller;
 
 
-import com.codingrecipe.project01.dto.MemberDTO;
-import com.codingrecipe.project01.repository.MemberRepository;
-import com.codingrecipe.project01.service.MemberService;
+import com.codingrecipe.member.dto.MemberDTO;
+import com.codingrecipe.member.repository.MemberRepository;
+import com.codingrecipe.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/member"  )
 @RequiredArgsConstructor  //repository 의존성 주입
 public class MemberController {
 
@@ -26,7 +26,7 @@ public class MemberController {
             @ModelAttribute MemberDTO memberDTO,
             @RequestParam("memberEmail") String name, Model model ){
         System.out.println(name);
-        model.addAttribute("id", name);//model리턴
+        model.addAttribute("member", memberDTO);//model리턴
         memberDTO.toString();
 
        int saveResult = memberService.save(memberDTO);
@@ -42,6 +42,7 @@ public class MemberController {
     public String loginForm(){
         return "login";
     }
+
     @GetMapping("/")
     public String memberList(){
 

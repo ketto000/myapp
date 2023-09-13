@@ -1,4 +1,4 @@
-package com.codingrecipe.project01.dto;
+package com.codingrecipe.member.dto;
 
 import lombok.Getter;
 import lombok.Setter;

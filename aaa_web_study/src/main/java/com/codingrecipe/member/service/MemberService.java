@@ -1,7 +1,7 @@
-package com.codingrecipe.project01.service;
+package com.codingrecipe.member.service;
 
-import com.codingrecipe.project01.dto.MemberDTO;
-import com.codingrecipe.project01.repository.MemberRepository;
+import com.codingrecipe.member.dto.MemberDTO;
+import com.codingrecipe.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

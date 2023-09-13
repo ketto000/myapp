@@ -3,11 +3,58 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
+
+
+    <!-- 데이터베이스 이름 및 계정 확인 -->
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+        <property value="com.mysql.cj.jdbc.Driver" name="driverClassName"/>
+        <property value="jdbc:mysql://localhost:3306/gallery" name="url"/>
+        <property value="root" name="username"/>
+        <property value="Roon1379@@" name="password"/>
+    </bean>
+
+    <!-- 파일 모두 생성했는지 확인 -->
+
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+        <property name="dataSource" ref="dataSource"/>
+        <property value="classpath:/mybatis-config.xml" name="configLocation"/>
+        <property value="classpath:/mapper/*.xml" name="mapperLocations"/>
+    </bean>
+
+
+    <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+        <property value="UTF-8" name="defaultEncoding"/>
+        <property value="10000000" name="maxUploadSize"/>
+    </bean>
+
+<!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
+
 </beans>
+
+
+        <!-- 계정 생성하기
+        create database db_codingrecipe;
+        create user user_codingrecipe@localhost identified by '1234';
+        grant all privileges on db_codingrecipe.* to user_codingrecipe@localhost;
+
+        회원 테이블
+        drop table if exists member_table;
+        create table member_table(
+        id bigint primary key auto_increment,
+        memberEmail varchar(20) unique,
+        memberPassword varchar(20),
+        memberName varchar(20),
+        memberAge int,
+        memberMobile varchar(30)
+        );  -->
