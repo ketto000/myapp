@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @Controller
 @RequestMapping("/member"  )
 @RequiredArgsConstructor  //repository 의존성 주입
@@ -43,10 +46,22 @@ public class MemberController {
         return "login";
     }
 
-    @GetMapping("/")
-    public String memberList(){
+    @PostMapping("/login")
+    public String login_action(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+        boolean loginResult = memberService.login(memberDTO);
+        if(loginResult){
+            session.setAttribute("loginEmail",memberDTO.getMemberEmail());
+            return "main";
+        }else{
+            return "login";
+        }
+    }
 
-        return "memberList";
+    @GetMapping("/")
+    public String memberList(Model model){
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        model.addAttribute("memberList", memberDTOList);
+        return "list";
     }
 
 
