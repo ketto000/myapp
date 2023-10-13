@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @RequestMapping("/member"  )
@@ -34,11 +33,10 @@ public class MemberController {
 
        int saveResult = memberService.save(memberDTO);
         if(saveResult > 0 ){
-            return "login";
+            return "redirect:/member/login";
         }else{
-            return "save";
+            return "redirect:/member/save";
         }
-
     }
 
     @GetMapping("/login")
@@ -47,21 +45,28 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login_action(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session){
         boolean loginResult = memberService.login(memberDTO);
         if(loginResult){
-            session.setAttribute("loginEmail",memberDTO.getMemberEmail());
+            session.setAttribute("loginEmail", memberDTO.getMemberEmail());
             return "main";
         }else{
             return "login";
         }
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "login";
+    }
+
+
+
     @GetMapping("/")
-    public String memberList(Model model){
-        List<MemberDTO> memberDTOList = memberService.findAll();
-        model.addAttribute("memberList", memberDTOList);
-        return "list";
+    public String memberList(){
+
+        return "memberList";
     }
 
 
