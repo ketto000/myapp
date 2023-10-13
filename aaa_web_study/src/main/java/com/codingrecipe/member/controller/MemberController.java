@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member"  )
@@ -61,13 +63,37 @@ public class MemberController {
         return "login";
     }
 
-
-
     @GetMapping("/")
-    public String memberList(){
-
-        return "memberList";
+    public String findAll(Model model){
+        List <MemberDTO> memberList = new ArrayList<>();
+        memberList=memberService.findAll();
+        model.addAttribute("memberList",memberList);
+        return "list";
     }
+
+    @GetMapping
+    public String findById(@RequestParam("id") Long id, Model model){
+        MemberDTO member = new MemberDTO();
+        member=memberService.findById(id);
+        model.addAttribute("member",member);
+        return "detail";
+    }
+
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model){
+        MemberDTO member = new MemberDTO();
+        member=memberService.findById(id);
+        model.addAttribute("member",member);
+        return "updateForm";
+    }
+
+//    @PostMapping("/update")
+//    public String updateForm(@ModelAttribute(value= "member") MemberDTO memberDTO, Model model){
+//        MemberDTO member = new MemberDTO();
+//        member=memberService.findById(id);
+//        model.addAttribute("member",member);
+//        return "updateForm";
+//    }
 
 
 }

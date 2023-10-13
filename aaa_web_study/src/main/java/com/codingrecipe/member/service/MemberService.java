@@ -5,6 +5,8 @@ import com.codingrecipe.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor //repository의존성주입
 public class MemberService {
@@ -22,4 +24,11 @@ public class MemberService {
         }
     }
 
+    public List<MemberDTO> findAll() {
+        return memberRepository.findAll();
+    }
+
+    public MemberDTO findById(Long id) {
+        return memberRepository.findById(id);
+    }
 }
