@@ -1,43 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb7b18d4-dda8-427b-b463-5c1304994982" name="Default Changelist" comment="" />
+    <list default="true" id="8a114d7b-7ffb-45d7-92b3-89d87074ead7" name="Default Changelist" comment="6.ajax_회원가입여부확인" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectId" id="2VYYHAiuzoYR9KDiaFerBrIpZKi" />
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="2VYYJS9ZNQary5rpukzKTCMSQl1" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="foldersAlwaysOnTop" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\spring_edu\myapp\aaa_web_study\src\main\webapp\WEB-INF\views\js" />
+      <recent name="E:\spring_edu\myapp\aaa_web_study\src\main\webapp\WEB-INF\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\spring_edu\myapp\aaa_web_study\src\main\webapp\WEB-INF\views" />
+      <recent name="E:\spring_edu\myapp\aaa_web_study\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="spring_edu" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="contextPath" value="/" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="extraClassPath" value="" />
+      <option name="port" value="8085" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.43" />
+          <option name="path" value="$PROJECT_DIR$/../../../apache-tomcat-9.0.43" />
+          <option name="version" value="9.0.43.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <module name="aaa_web_study" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eb7b18d4-dda8-427b-b463-5c1304994982" name="Default Changelist" comment="" />
-      <created>1695014390808</created>
+      <changelist id="8a114d7b-7ffb-45d7-92b3-89d87074ead7" name="Default Changelist" comment="" />
+      <created>1695014409272</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1695014390808</updated>
-      <workItem from="1695014392317" duration="9000" />
+      <updated>1695014409272</updated>
+      <workItem from="1695014410553" duration="130000" />
+      <workItem from="1695193224213" duration="3037000" />
+      <workItem from="1695259341192" duration="743000" />
+      <workItem from="1695455015411" duration="597000" />
+      <workItem from="1695609439199" duration="29000" />
+      <workItem from="1695609501206" duration="599000" />
+      <workItem from="1697009195899" duration="758000" />
+      <workItem from="1697072984522" duration="2669000" />
+      <workItem from="1697097088291" duration="2311000" />
+      <workItem from="1697163232624" duration="8621000" />
+      <workItem from="1697780556523" duration="7541000" />
+      <workItem from="1698367721490" duration="11239000" />
     </task>
+    <task id="LOCAL-00001" summary="6.ajax_회원가입여부확인">
+      <created>1698391319298</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698391319298</updated>
+    </task>
+    <task id="LOCAL-00002" summary="6.ajax_회원가입여부확인">
+      <created>1698391590509</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698391590509</updated>
+    </task>
+    <task id="LOCAL-00003" summary="6.ajax_회원가입여부확인">
+      <created>1698391746246</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698391746246</updated>
+    </task>
+    <task id="LOCAL-00004" summary="6.ajax_회원가입여부확인">
+      <created>1698392631785</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698392631785</updated>
+    </task>
+    <task id="LOCAL-00005" summary="6.ajax_회원가입여부확인">
+      <created>1698392640260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698392640260</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="5.수정, 삭제" />
+    <MESSAGE value="6.ajax_회원가입여부확인" />
+    <option name="LAST_COMMIT_MESSAGE" value="6.ajax_회원가입여부확인" />
   </component>
 </project>
