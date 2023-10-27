@@ -5,6 +5,9 @@ import com.codingrecipe.member.dto.MemberDTO;
 import com.codingrecipe.member.repository.MemberRepository;
 import com.codingrecipe.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/member"  )
@@ -21,10 +25,14 @@ public class MemberController {
     private final MemberService memberService;
     private final MemberRepository memberRepository;
 
+    private final Logger LOGGER = LoggerFactory.getLogger(MemberController.class);
+
     @GetMapping("/save")
     public String saveForm(){
         return "save";
     }
+
+
     @PostMapping("/save")
     public String save(
             @ModelAttribute MemberDTO memberDTO,
@@ -35,7 +43,7 @@ public class MemberController {
 
        int saveResult = memberService.save(memberDTO);
         if(saveResult > 0 ){
-            return "redirect:/member/login";
+            return "login";
         }else{
             return "redirect:/member/save";
         }
@@ -47,10 +55,15 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model){
         boolean loginResult = memberService.login(memberDTO);
+
+
         if(loginResult){
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
+            MemberDTO member = new MemberDTO();
+            member=memberService.findByUser(memberDTO.getMemberEmail());
+            model.addAttribute("member",member);
             return "main";
         }else{
             return "login";
@@ -87,13 +100,32 @@ public class MemberController {
         return "updateForm";
     }
 
-//    @PostMapping("/update")
-//    public String updateForm(@ModelAttribute(value= "member") MemberDTO memberDTO, Model model){
-//        MemberDTO member = new MemberDTO();
-//        member=memberService.findById(id);
-//        model.addAttribute("member",member);
-//        return "updateForm";
-//    }
+    @PostMapping("/memberUpdate")
+    public String memberUpdate(@ModelAttribute(value= "member") MemberDTO memberDTO, Model model){
+        memberService.memberUpdate(memberDTO);
+        model.addAttribute("member",memberDTO);
+        return "detail";
+    }
+
+    @GetMapping("/memberDelete")
+    public String memberDelete(@RequestParam("id") Long id, Model model){
+        memberService.memberDelete(id);
+
+        return "redirect:/member/";
+    }
+    //ajax 메일채크
+
+    @PostMapping("/email_check")
+    public @ResponseBody String emailCheck(@RequestParam("memberEmail") String memberEmail){
+
+        LOGGER.info("memeberEmail ==>" + memberEmail);
+
+
+        String checkResult = memberService.emailCheck(memberEmail);
+        return checkResult;
+    }
+
+
 
 
 }

@@ -18,6 +18,12 @@ public class MemberRepository
         return sql.insert("Member.save", memberDTO); //Member<-namespace , save<-id
     }
 
+    public int memberUpdate(MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
+        return sql.update("Member.memberUpdate", memberDTO); //Member<-namespace , save<-id
+    }
+
+    public int memberDelete(Long id){ return sql.delete("Member.deleteId", id); }
 
     public MemberDTO login(MemberDTO memberDTO) {
         return sql.selectOne("Member.login", memberDTO); //한개의 값
@@ -29,6 +35,10 @@ public class MemberRepository
 
     public MemberDTO findById(Long id){
         return sql.selectOne("Member.findById", id);
+    }
+
+    public MemberDTO findByUser(String memberEmail){
+        return sql.selectOne("Member.findByUser", memberEmail);
     }
 
 }

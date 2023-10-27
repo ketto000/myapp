@@ -5,7 +5,7 @@
     <title>update</title>
 </head>
 <body>
-  <form id="memberUpdate" action="update" method="post" enctype="multipart/form-data">
+  <form id="memberUpdate" action="/member/memberUpdate" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <th>id</th><td><input type="text" value="${member.id}" name="id" /></td>
@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td rowspan="2">
-                <input type="button" id="submit_btn" value="전송" />
+                <input type="button" id="submit_btn" value="전송" onclick="updateMember();"/>
                 <input type="button" id="delete_btn" value="삭제" onclick="deleteMember('${member.id}')" />
             </td>
         </tr>
@@ -45,6 +45,8 @@
     const updateMember = () =>{
         document.getElementById('memberUpdate').submit();
     }
+
+
     const deleteMember = (id) => {
         console.log(id);
         location.href="/member/delete?=id"+id;

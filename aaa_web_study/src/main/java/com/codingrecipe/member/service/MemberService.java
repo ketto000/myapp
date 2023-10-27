@@ -15,6 +15,11 @@ public class MemberService {
     public int save(MemberDTO memberDTO){
         return memberRepository.save(memberDTO);
     }
+
+    public int memberUpdate(MemberDTO memberDTO){
+        return memberRepository.memberUpdate(memberDTO);
+    }
+
     public boolean login(MemberDTO memberDTO){
         MemberDTO loginMember = memberRepository.login(memberDTO);
         if(loginMember != null){
@@ -31,4 +36,21 @@ public class MemberService {
     public MemberDTO findById(Long id) {
         return memberRepository.findById(id);
     }
+
+    public int memberDelete(Long id) { return memberRepository.memberDelete(id); }
+
+    public MemberDTO findByUser(String memberEmail) {
+        return memberRepository.findByUser(memberEmail);
+    } //이메일찾기
+
+    public String emailCheck(String  memberEmail){ //메일 확인
+        MemberDTO memberDTO = memberRepository.findByUser(memberEmail);
+        if(memberDTO == null){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
+
+
 }
