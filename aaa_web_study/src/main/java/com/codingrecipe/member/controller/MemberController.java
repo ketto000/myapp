@@ -123,6 +123,7 @@ public class MemberController {
 
         String checkResult = memberService.emailCheck(memberEmail);
         return checkResult;
+
     }
 
 
