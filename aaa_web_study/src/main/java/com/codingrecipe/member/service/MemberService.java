@@ -15,6 +15,11 @@ public class MemberService {
     public int save(MemberDTO memberDTO){
         return memberRepository.save(memberDTO);
     }
+
+    public int memberUpdate(MemberDTO memberDTO){
+        return memberRepository.memberUpdate(memberDTO);
+    }
+
     public boolean login(MemberDTO memberDTO){
         MemberDTO loginMember = memberRepository.login(memberDTO);
         if(loginMember != null){
@@ -30,5 +35,11 @@ public class MemberService {
 
     public MemberDTO findById(Long id) {
         return memberRepository.findById(id);
+    }
+
+    public int memberDelete(Long id) { return memberRepository.memberDelete(id); }
+
+    public MemberDTO findByUser(String memberEail) {
+        return memberRepository.findByUser(memberEail);
     }
 }

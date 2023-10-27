@@ -17,17 +17,21 @@
         select * from member_table where id=#{id}
     </select>
 
+    <select id="findByUser" parameterType="String" resultType="member">
+        select * from member_table where memberEmail=#{memberEmail}
+    </select>
+    <update id="memberUpdate" parameterType="member" >
+        update member_table set memberEmail=#{memberEmail},
+                                memberPassword=#{memberPassword},
+                                memberName=#{memberName},
+                                memberAge=#{memberAge},
+                                memberMobile=#{memberMobile}
+            where id=#{id}
+    </update>
+    <delete id="deetleId" parameterType="Long">
+        delete from member_table where id=#{id}
+    </delete>
 
-<!--    <delete id="delete" parameterType="Long">-->
-<!--        delete from member_table where id=#{id}-->
-<!--    </delete>-->
-<!--    <select id="findByMemberEmail" parameterType="String" resultType="member">-->
-<!--        select * from member_table where memberEmail=#{loginEmail}-->
-<!--    </select>-->
-<!--    <update id="update" parameterType="member">-->
-<!--        update member_table set memberAge=#{memberAge}, memberMobile=#{memberMobile}-->
-<!--        where id=#{id}-->
-<!--    </update>-->
 </mapper>
 
 

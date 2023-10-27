@@ -25,7 +25,7 @@
             <th>mobile</th> <td>${member.memberMobile}</td>
         </tr>
         <tr>
-            <th>조회</th> <td><a href="/member?id=${member.id}">조회</a></td>
+            <th>목록</th> <td><a href="/member/">목록</a></td>
         </tr>
             <th>삭제</th>  <td><button onclick="deleteMember('${member.id}')">삭제</button></td>
         </tr>

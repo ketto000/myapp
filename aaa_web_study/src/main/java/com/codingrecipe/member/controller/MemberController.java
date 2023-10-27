@@ -35,7 +35,7 @@ public class MemberController {
 
        int saveResult = memberService.save(memberDTO);
         if(saveResult > 0 ){
-            return "redirect:/member/login";
+            return "login";
         }else{
             return "redirect:/member/save";
         }
@@ -47,10 +47,15 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model){
         boolean loginResult = memberService.login(memberDTO);
+
+
         if(loginResult){
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
+            MemberDTO member = new MemberDTO();
+            member=memberService.findByUser(memberDTO.getMemberEmail());
+            model.addAttribute("member",member);
             return "main";
         }else{
             return "login";
@@ -87,13 +92,18 @@ public class MemberController {
         return "updateForm";
     }
 
-//    @PostMapping("/update")
-//    public String updateForm(@ModelAttribute(value= "member") MemberDTO memberDTO, Model model){
-//        MemberDTO member = new MemberDTO();
-//        member=memberService.findById(id);
-//        model.addAttribute("member",member);
-//        return "updateForm";
-//    }
+    @PostMapping("/memberUpdate")
+    public String memberUpdate(@ModelAttribute(value= "member") MemberDTO memberDTO, Model model){
+        memberService.memberUpdate(memberDTO);
+        model.addAttribute("member",memberDTO);
+        return "detail";
+    }
 
+    @GetMapping("/memberDelete")
+    public String memberDelete(@RequestParam("id") Long id, Model model){
+        memberService.memberDelete(id);
+
+        return "redirect:/member/";
+    }
 
 }
